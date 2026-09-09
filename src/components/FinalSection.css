@@ -54,3 +54,51 @@
   color: var(--gold);
   font-weight: 600;
 }
+
+.final-signature {
+  position: relative;
+  margin-top: 0.3rem;
+  padding: 0.75rem 1.4rem;
+  color: var(--violet-deep);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  animation: signature-glow 3.2s ease-in-out infinite;
+}
+
+.final-signature::before,
+.final-signature::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.final-signature::before {
+  right: 100%;
+}
+
+.final-signature::after {
+  left: 100%;
+}
+
+@keyframes signature-glow {
+  0%, 100% {
+    transform: translateY(0);
+    text-shadow: 0 4px 14px rgba(139, 107, 199, 0.12);
+  }
+  50% {
+    transform: translateY(-3px);
+    text-shadow: 0 7px 18px rgba(224, 127, 164, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .final-signature {
+    animation: none;
+  }
+}

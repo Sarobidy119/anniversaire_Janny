@@ -44,7 +44,7 @@ Continue à avancer avec ta bonne humeur et ton énergie. Profite pleinement de 
   finalTagline: "Que cette nouvelle année de ta vie soit encore plus belle que la précédente.",
 
   // Signature
-  signature: "De la part de Sarobidy et Harena",
+  signature: "De la part de Harena",
 
   // Liste des souhaits (icône lucide-react + libellé), section 3
   // Les noms d'icônes correspondent aux composants importés dans Wishes.tsx
@@ -60,15 +60,13 @@ Continue à avancer avec ta bonne humeur et ton énergie. Profite pleinement de 
   ],
 
   // Galerie de souvenirs (section 4)
-  // Remplace "src" par le chemin de tes propres photos, par ex. "/src/assets/images/photo1.jpg"
-  // et importe-les en haut de Gallery.tsx (voir le commentaire dans ce fichier).
   gallery: [
-    { id: 1, src: photo1, caption: "Un beau souvenir" },
-    { id: 2, src: photo2, caption: "Un beau souvenir" },
-    { id: 3, src: photo3, caption: "Un beau souvenir" },
-    { id: 4, src: photo4, caption: "Un beau souvenir" },
-    { id: 5, src: photo5, caption: "Un beau souvenir" },
-    { id: 6, src: photo6, caption: "Un beau souvenir" },
+    { id: 1, src: photo1, caption: "Une journée pleine de rires devant l'École de Management et d'Innovation Technologique." },
+    { id: 2, src: photo2, caption: "Un sourire partagé dans une chambre aux couleurs douces, avec un beau souvenir de diplôme en arrière-plan." },
+    { id: 3, src: photo3, caption: "Un tendre selfie miroir, rempli de complicité et de sourires." },
+    { id: 4, src: photo4, caption: "La joie d'une remise de diplôme célébrée entre amies, en tenue de cérémonie." },
+    { id: 5, src: photo5, caption: "Un moment de fierté et d'amitié après une belle étape universitaire." },
+    { id: 6, src: photo6, caption: "Un selfie spontané au soleil, avec deux sourires qui illuminent la journée." },
   ],
 
   // Vidéo YouTube utilisée comme musique : elle démarre uniquement après un clic sur Play.

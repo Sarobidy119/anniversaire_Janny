@@ -35,7 +35,7 @@ export default function FinalSection() {
           </h2>
           <p className="final-tagline">{config.finalTagline}</p>
           <p className="final-fullname">{config.fullName}</p>
-          <p className="final-fullname">{config.signature}</p>
+          <p className="final-signature">{config.signature}</p>
         </motion.div>
       </div>
     </section>
