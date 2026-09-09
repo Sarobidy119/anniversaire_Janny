@@ -21,7 +21,7 @@ export const config = {
   fullName: "Janny Ralainirina",
 
   // Année de naissance : l'âge est calculé automatiquement chaque année
-  birthYear: 2002,
+  birthYear: 2001,
 
   // Petite phrase sous le titre principal
   heroTagline:
