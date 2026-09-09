@@ -4,11 +4,6 @@ import { Camera, X } from "lucide-react";
 import { config } from "../config";
 import "./Gallery.css";
 
-// Pour ajouter tes propres photos :
-// 1. Dépose tes images dans src/assets/images/ (ex: photo1.jpg)
-// 2. Importe-les ici : import photo1 from "../assets/images/photo1.jpg";
-// 3. Renseigne le champ "src" correspondant dans src/config.ts, ex: { id: 1, src: photo1, caption: "..." }
-
 // tailles variées pour un mur de photos plus vivant qu'une grille uniforme
 const sizeClasses = ["tile-tall", "tile-wide", "tile-normal", "tile-normal", "tile-wide", "tile-tall"];
 
@@ -22,10 +17,10 @@ export default function Gallery() {
     <section className="section gallery-section">
       <div className="section-inner">
         <p className="section-eyebrow">Souvenirs</p>
-        <h2 className="section-title">Nos petits souvenirs</h2>
+        <h2 className="section-title">Des souvenirs qui nous ressemblent</h2>
         <p className="section-lede">
-          Une galerie prête à accueillir vos plus beaux moments ensemble — ajoute tes photos et regarde-la
-          prendre vie.
+          Des sourires, des réussites et des instants de complicité qui racontent une belle histoire, image
+          après image.
         </p>
 
         <div className="gallery-grid">
@@ -38,7 +33,7 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: (i % 6) * 0.06 }}
-              aria-label={`Ouvrir la photo ${photo.id}`}
+              aria-label={`Ouvrir la photo ${photo.id} : ${photo.caption}`}
             >
               {photo.src ? (
                 <img src={photo.src} alt={photo.caption} loading="lazy" />
