@@ -1,8 +1,20 @@
 .blessing-section {
-  background: linear-gradient(160deg, #4a3468 0%, #6b4e9e 50%, #7a5aad 100%);
+  background: linear-gradient(160deg, #3d2a4e 0%, #65468f 48%, #a66c98 100%);
   text-align: center;
   padding-top: clamp(5rem, 10vw, 8rem);
   padding-bottom: clamp(5rem, 10vw, 8rem);
+  isolation: isolate;
+}
+
+.blessing-section::before {
+  content: "";
+  position: absolute;
+  inset: 12% 18%;
+  border: 1px solid rgba(242, 220, 170, 0.22);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  animation: blessing-orbit 14s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .blessing-content {
@@ -15,6 +27,7 @@
 .blessing-glyph {
   color: var(--gold-light);
   opacity: 0.85;
+  animation: blessing-sparkle 2.8s ease-in-out infinite;
 }
 
 .blessing-text {
@@ -25,4 +38,22 @@
   line-height: 1.7;
   color: #fbf6ff;
   max-width: 620px;
+  text-shadow: 0 8px 28px rgba(35, 19, 52, 0.25);
+}
+
+@keyframes blessing-orbit {
+  0%, 100% { transform: rotate(-8deg) scale(1); opacity: 0.45; }
+  50% { transform: rotate(5deg) scale(1.04); opacity: 0.9; }
+}
+
+@keyframes blessing-sparkle {
+  0%, 100% { transform: scale(0.9) rotate(0deg); }
+  50% { transform: scale(1.18) rotate(15deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blessing-section::before,
+  .blessing-glyph {
+    animation: none;
+  }
 }

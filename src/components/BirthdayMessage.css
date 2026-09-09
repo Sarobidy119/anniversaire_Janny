@@ -1,5 +1,5 @@
 .message-section {
-  background: var(--cream);
+  background: linear-gradient(180deg, var(--cream) 0%, #fffdfb 100%);
 }
 
 .message-card {
@@ -10,6 +10,31 @@
   box-shadow: var(--shadow-soft);
   text-align: center;
   border: 1px solid rgba(217, 169, 78, 0.18);
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.message-card::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 168, 192, 0.3), transparent 68%);
+  animation: message-glow 7s ease-in-out infinite;
+}
+
+.message-card::after {
+  content: "✦";
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  color: var(--gold);
+  font-size: 1.2rem;
+  opacity: 0.65;
+  animation: message-star 3s ease-in-out infinite;
 }
 
 .message-mark {
@@ -39,4 +64,23 @@
   font-style: italic;
   font-size: 1.1rem;
   color: var(--rose-deep);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes message-glow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-18px, 12px) scale(1.15); }
+}
+
+@keyframes message-star {
+  0%, 100% { transform: rotate(0deg) scale(0.9); opacity: 0.45; }
+  50% { transform: rotate(18deg) scale(1.2); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message-card::before,
+  .message-card::after {
+    animation: none;
+  }
 }

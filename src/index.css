@@ -34,6 +34,7 @@
   --radius-lg: 28px;
   --radius-md: 18px;
   --section-pad: clamp(4rem, 9vw, 7rem);
+  --section-line: rgba(139, 107, 199, 0.12);
 }
 
 /* ============================================================
@@ -116,6 +117,19 @@ button:focus-visible {
   position: relative;
   padding: var(--section-pad) 1.5rem;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(86%, 760px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--section-line), transparent);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .section-inner {
@@ -132,12 +146,14 @@ button:focus-visible {
   color: var(--rose-deep);
   text-align: center;
   margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
 }
 
 .section-title {
   font-size: clamp(1.9rem, 4.5vw, 2.8rem);
   text-align: center;
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
 
 .section-lede {
@@ -147,6 +163,7 @@ button:focus-visible {
   color: var(--plum-soft);
   font-size: clamp(1rem, 1.6vw, 1.08rem);
   line-height: 1.7;
+  text-wrap: balance;
 }
 
 /* Séparateur organique entre les sections, à la place d'une ligne dure */

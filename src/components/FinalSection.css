@@ -1,5 +1,5 @@
 .final-section {
-  background: var(--gradient-warm);
+  background: radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.8), transparent 34%), var(--gradient-warm);
   min-height: 70svh;
   display: flex;
   align-items: center;
@@ -12,6 +12,20 @@
   flex-direction: column;
   align-items: center;
   gap: 0.9rem;
+  position: relative;
+  padding: 2.4rem 1.5rem;
+  max-width: 780px;
+  width: 100%;
+}
+
+.final-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 42% 58% 48% 52% / 48% 44% 56% 52%;
+  animation: final-breathe 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .final-kicker {
@@ -86,6 +100,11 @@
   left: 100%;
 }
 
+@keyframes final-breathe {
+  0%, 100% { transform: rotate(-2deg) scale(1); }
+  50% { transform: rotate(2deg) scale(1.02); }
+}
+
 @keyframes signature-glow {
   0%, 100% {
     transform: translateY(0);
@@ -98,6 +117,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .final-content::before {
+    animation: none;
+  }
+
   .final-signature {
     animation: none;
   }
