@@ -1,0 +1,28 @@
+.blessing-section {
+  background: linear-gradient(160deg, #4a3468 0%, #6b4e9e 50%, #7a5aad 100%);
+  text-align: center;
+  padding-top: clamp(5rem, 10vw, 8rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+.blessing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.blessing-glyph {
+  color: var(--gold-light);
+  opacity: 0.85;
+}
+
+.blessing-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 3.2vw, 1.75rem);
+  line-height: 1.7;
+  color: #fbf6ff;
+  max-width: 620px;
+}

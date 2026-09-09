@@ -1,0 +1,259 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Couleurs de base */
+  --cream: #fff8f3;
+  --cream-deep: #fdf1ea;
+  --rose: #f0a8c0;
+  --rose-deep: #e07fa4;
+  --rose-soft: #fbe4ec;
+  --violet: #8b6bc7;
+  --violet-deep: #5b3e8c;
+  --violet-soft: #ece3fa;
+  --gold: #d9a94e;
+  --gold-light: #f2dcaa;
+  --plum: #3d2a4e;
+  --plum-soft: #6f5a82;
+  --white: #ffffff;
+
+  /* Dégradés signatures */
+  --gradient-warm: linear-gradient(135deg, var(--rose-soft) 0%, var(--cream) 45%, var(--violet-soft) 100%);
+  --gradient-name: linear-gradient(100deg, var(--rose-deep) 0%, var(--gold) 50%, var(--violet) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--gold-light), var(--gold));
+
+  /* Typographie */
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Poppins", "Segoe UI", sans-serif;
+
+  /* Ombres */
+  --shadow-soft: 0 12px 40px -12px rgba(91, 62, 140, 0.22);
+  --shadow-card: 0 8px 28px -10px rgba(224, 127, 164, 0.35);
+
+  /* Rythme */
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --section-pad: clamp(4rem, 9vw, 7rem);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--plum);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--violet-deep);
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--white);
+}
+
+/* Focus visible pour l'accessibilité clavier */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   LAYOUT COMMUN AUX SECTIONS
+   ============================================================ */
+.section {
+  position: relative;
+  padding: var(--section-pad) 1.5rem;
+  overflow: hidden;
+}
+
+.section-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--rose-deep);
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-lede {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  color: var(--plum-soft);
+  font-size: clamp(1rem, 1.6vw, 1.08rem);
+  line-height: 1.7;
+}
+
+/* Séparateur organique entre les sections, à la place d'une ligne dure */
+.blob-divider {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 60px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.blob-divider.top {
+  top: -30px;
+}
+
+.blob-divider.bottom {
+  bottom: -30px;
+}
+
+/* ============================================================
+   PARTICULES / ÉTOILES DE FOND
+   ============================================================ */
+.floating-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: float-up linear infinite;
+  opacity: 0.55;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(10%) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-110%) translateX(var(--drift, 20px)) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.star {
+  position: absolute;
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* ============================================================
+   BOUTONS PARTAGÉS
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.1rem;
+  border-radius: 999px;
+  background: var(--gradient-name);
+  background-size: 200% auto;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--shadow-card);
+  transition: background-position 0.5s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px -10px rgba(224, 127, 164, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================================
+   ACCESSIBILITÉ — RÉDUIRE LES ANIMATIONS
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — AJUSTEMENTS GLOBAUX MOBILE
+   ============================================================ */
+@media (max-width: 640px) {
+  :root {
+    --section-pad: 3.5rem;
+  }
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+  }
+}

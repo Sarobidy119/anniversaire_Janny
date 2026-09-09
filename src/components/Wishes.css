@@ -1,0 +1,65 @@
+.wishes-section {
+  background: var(--cream-deep);
+}
+
+.wishes-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 0.9rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.wish-pebble {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.98rem;
+  color: var(--plum);
+  transform: rotate(var(--tilt));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  box-shadow: 0 6px 18px -10px rgba(61, 42, 78, 0.25);
+  cursor: default;
+}
+
+.wish-pebble:hover,
+.wish-pebble:focus-visible {
+  transform: rotate(0deg) translateY(-5px) scale(1.04);
+  box-shadow: 0 14px 26px -10px rgba(61, 42, 78, 0.3);
+}
+
+.wish-icon {
+  flex-shrink: 0;
+  color: var(--rose-deep);
+}
+
+.tone-violet .wish-icon {
+  color: var(--violet-deep);
+}
+
+.tone-gold .wish-icon {
+  color: var(--gold);
+}
+
+.tone-rose {
+  background: var(--rose-soft);
+}
+
+.tone-violet {
+  background: var(--violet-soft);
+}
+
+.tone-gold {
+  background: var(--gold-light);
+}
+
+@media (max-width: 480px) {
+  .wish-pebble {
+    padding: 0.7rem 1.05rem;
+    font-size: 0.9rem;
+  }
+}

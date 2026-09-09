@@ -1,0 +1,42 @@
+.message-section {
+  background: var(--cream);
+}
+
+.message-card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.4rem, 6vw, 3.6rem);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  border: 1px solid rgba(217, 169, 78, 0.18);
+}
+
+.message-mark {
+  display: block;
+  margin: 0 auto 0.75rem;
+  color: var(--gold);
+}
+
+.message-paragraph {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.85;
+  color: var(--plum);
+  max-width: 620px;
+  margin: 0 auto 1.2rem;
+}
+
+.message-paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.message-signoff {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.8rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--rose-deep);
+}
